@@ -1,6 +1,4 @@
 <?php
-var_dump($_GET);
-
 $i = 0;
 foreach($_GET as $val)
 {
