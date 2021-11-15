@@ -1,0 +1,27 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#style
+{
+    width: 150px;
+    height: 30px;
+}
+
+.btn
+{
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+}

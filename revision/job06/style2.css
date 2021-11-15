@@ -1,0 +1,119 @@
+@font-face {
+    font-family: "Earth Orbiter";
+    src: url(fonts/earthorbiter.ttf);
+}
+
+@keyframes animBtn {
+    0% {
+        background-image: linear-gradient(
+            to right,
+            white,
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            rgba(0,0,0,0)
+        );
+    }
+    25% {
+        background-image: linear-gradient(
+            to right,
+            rgba(0,0,0,0),
+            white,
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            rgba(0,0,0,0)
+        );
+    }
+    50% {
+        background-image: linear-gradient(
+            to right,
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            white,
+            rgba(0,0,0,0),
+            rgba(0,0,0,0)
+        );
+    }
+    75% {
+        background-image: linear-gradient(
+            to right,
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            white,
+            rgba(0,0,0,0)
+        );
+    }
+    100% {
+        background-image: linear-gradient(
+            to right,
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            rgba(0,0,0,0),
+            white
+        );
+    }
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-image: url(img/synth.jpg);
+    background-size: cover;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 200px;
+    height: fit-content;
+    background-image: linear-gradient(
+        to bottom,
+        cyan,
+        rgb(0, 65, 65)
+    );
+    border-radius: 50px 0px 50px;
+    margin: auto;
+    margin-top: 15%;
+}
+
+#style
+{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(255, 255, 96);
+    border: 0px;
+}
+
+.btn
+{
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: greenyellow;
+    font-family: "Earth Orbiter";
+    border: 0px;
+}
+
+.btn:hover
+{
+    animation: animBtn 0.25s forwards;
+}
+
+label
+{
+    font-family: "Earth Orbiter";
+    font-size: 30;
+    text-align: center;
+    color: blueviolet;
+}

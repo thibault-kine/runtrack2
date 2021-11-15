@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "Kumar One";
+    src: url(fonts/KumarOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lambola;
+    src: url(fonts/Lambola\ Demo.ttf);
+}
+
+@keyframes animBtn {
+    0% {
+        height: 30px;
+    }
+    100% {
+        height: 60px;
+    }
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-image: url(img/fuji.jpg);
+    background-size: cover;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(165, 104, 223);
+    margin: auto;
+    margin-top: 15%;
+    border-radius: 30px;
+    opacity: 0.9;
+    outline: 5px solid blueviolet;
+}
+
+#style
+{
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: pink;
+}
+
+.btn
+{
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    background-color: pink;
+}
+
+.btn:hover
+{
+    animation: animBtn 0.5s forwards;
+}
+
+label
+{
+    font-family: Lambola;
+    font-size: 26;
+}

@@ -1,0 +1,48 @@
+@font-face {
+    font-family: Seagram;
+    src: url(fonts/Seagram\ tfb.ttf);
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-image: url(img/map.png);
+    background-size: cover;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding: 30px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 15%;
+    background-color: rgb(255, 237, 197);
+    font-family: 'Trebuchet MS';
+    font-size: 20;
+    color: darkslategray;
+    border: 3px dotted rgb(218, 190, 66);
+    opacity: 0.8;
+}
+
+#style
+{
+    width: 150px;
+    height: 30px;
+}
+
+.btn
+{
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+}
