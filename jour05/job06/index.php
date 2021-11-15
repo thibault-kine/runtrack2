@@ -37,5 +37,5 @@ function leetspeak($str)
     return $str;
 }
 
-echo(leetspeak("Je suis un hackeur!!"));
+echo(leetspeak("Je suis un hackeur car je parle en leetspeak !"));
 ?>

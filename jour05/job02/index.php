@@ -1,5 +1,5 @@
 <?php
-function bonjour(bool $jour)
+function bonjour($jour)
 {
     if($jour)
     {
@@ -10,4 +10,6 @@ function bonjour(bool $jour)
         echo("Bonsoir");
     }
 }
+
+bonjour(false);
 ?>
