@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "Louis George Café";
+    src: url(fonts/Louis\ George\ Cafe.ttf);
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2
+{
+    font-family: "Louis George Café";
+}
+
+header
+{
+    font-family: "Louis George Café";
+    color: white;
+    background-color: rgb(61, 61, 146);
+    height: 10vh;
+}
+
+header a
+{
+    text-decoration: none;
+    color: white;
+}
+
+header h1
+{
+    width: fit-content;
+    margin: auto;
+    padding-top: 10px;
+    letter-spacing: 1px;
+}
+
+#welcome
+{
+    font-family: "Louis George Café";
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#links
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#inscription-popup
+{
+    text-align: center;
+    background-color: rgb(245, 203, 141);
+    border-radius: 30px;
+    border: 5px dotted rgb(218, 180, 124);
+    padding: 30px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#inscription
+{
+    background-color: rgb(245, 203, 141);
+    border-radius: 30px;
+    border: 5px dotted rgb(218, 180, 124);
+    padding: 30px;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#connexion
+{
+    background-color: rgb(245, 203, 141);
+    border-radius: 30px;
+    border: 5px dotted rgb(218, 180, 124);
+    padding: 30px;
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+form
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22;
+    line-height: 40px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+input
+{
+    height: 30px;
+    margin-left: 5px;
+}
+
+.field
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.field input
+{
+    flex-grow: 1;
+    margin-top: 5px;
+}
+
+.btn
+{
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin-top: 20px;
+    font-family: "Louis George Café";
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(218, 180, 124);
+    border: 5px solid rgb(179, 147, 100);
+}
+
+.btn:hover
+{
+    background-color: rgb(179, 147, 100);
+}
