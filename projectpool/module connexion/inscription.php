@@ -14,7 +14,10 @@ $canRegister = false;
 <header>
     <div id="links">
         <a href="index.php"><h1>Bouff' @ Home</h1></a> 
-        <a href="inscription.php"><h2>S'inscrire / Se connecter</h2></a>
+        <div id="profile-links">
+            <a href="inscription.php"><h2>S'inscrire</h2></a>
+            <a href="connexion.php"><h2>Se connecter</h2></a>
+        </div>
     </div>
 </header>
 
@@ -24,7 +27,16 @@ $canRegister = false;
     <div id="inscription">
 
     <h1>Inscription :</h1>
-    <form action="" method="post">
+    <?php
+    if(!$canRegister)
+    {
+        echo("<form action=\"\" method=\"post\">");
+    }
+    else
+    {
+        echo("<form action=\"connexion.php\" method=\"post\">");
+    }
+    ?>
         <div class="field">
         <label for="name">Prénom : </label>
         <input type="text" name="name"><br>
@@ -50,8 +62,8 @@ $canRegister = false;
         if($_POST != null)
         {
             if(
-                $_POST["name"] != "" || $_POST["lastname"] != "" ||
-                $_POST["login"] != "" || $_POST["p1"] != "" || $_POST["p2"] != ""
+                $_POST["name"] != "" && $_POST["lastname"] != "" &&
+                $_POST["login"] != "" && $_POST["p1"] != "" && $_POST["p2"] != ""
             )
             {
                 if($_POST["p1"] == $_POST["p2"])
@@ -62,10 +74,9 @@ $canRegister = false;
         }
         ?>
 
-        <a href="connexion.php">
         <input type="submit" value="Je m'inscris !" class="btn">
-        </a><br>
-        <a href="connexion.php" style="font-size: 16;">Vous avez déjà un compte ? Connectez-vous ici.</a>
+        <br>
+        <a href="connexion.php" style="font-family: Arial; font-size: 16;">Vous avez déjà un compte ? Connectez-vous ici.</a>
     </form>
 
     </div>

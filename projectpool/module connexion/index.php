@@ -14,7 +14,10 @@
 <header>
     <div id="links">
         <a href="index.php"><h1>Bouff' @ Home</h1></a> 
-        <a href="inscription.php"><h2>S'inscrire / Se connecter</h2></a>
+        <div id="profile-links">
+            <a href="inscription.php"><h2>S'inscrire</h2></a>
+            <a href="connexion.php"><h2>Se connecter</h2></a>
+        </div>
     </div>
 </header>
 

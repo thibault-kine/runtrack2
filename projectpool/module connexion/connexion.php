@@ -14,7 +14,10 @@ $canConnect = false;
 <header>
     <div id="links">
         <a href="index.php"><h1>Bouff' @ Home</h1></a> 
-        <a href="inscription.php"><h2>S'inscrire / Se connecter</h2></a>
+        <div id="profile-links">
+            <a href="inscription.php"><h2>S'inscrire</h2></a>
+            <a href="connexion.php"><h2>Se connecter</h2></a>
+        </div>
     </div>
 </header>
 
@@ -24,7 +27,16 @@ $canConnect = false;
     <div id="connexion">
 
     <h1>Connexion :</h1>
-    <form action="" method="post">
+    <?php
+    if(!$canConnect)
+    {
+        echo "<form action=\"\" method=\"post\">";
+    }
+    else
+    {
+        echo "<form action=\"profil.php\" method=\"post\">";
+    }
+    ?>
         <div class="field">
         <label for="login">Nom d'utilisateur :</label>
         <input type="text" name="login"><br>
@@ -35,18 +47,13 @@ $canConnect = false;
         </div>
 
         <?php
-        if($_POST != null)
+        if(!empty($_POST)) // si $_POST n'est pas vide
         {
-            if($_POST["login"] != "" && $_POST["p1"] != "")
-            {
-                $canConnect = true;
-            }
+            checkLogin($_POST["login"], $_POST["p1"]);
         }
         ?>
             
-        <a href="connexion.php">
         <input type="submit" value="Je me connecte !" class="btn">
-        </a>
     </form>
 
     </div>
@@ -54,23 +61,38 @@ $canConnect = false;
 </html>
 
 <?php
-if($canConnect)
+function checkLogin(string $_login, string $_password)
 {
-    $_login = $_POST["login"];
-    $_password = $_POST["p1"];
-
-    $bdd = mysqli_connect("localhost", "root", "", "moduleconnexion");
-    $query = "SELECT `login`, `password` FROM `utilisateurs` WHERE '$_login'=`login` AND '$_password'=`password`";
-    
-    $connexion = mysqli_query($bdd, $query);
-    var_dump($connexion);
-    if($connexion['num_rows'] == 1)
+    if($_login != "" && $_password != "") // si les champs entrés ne sont pas vides
     {
-        session_start();
-        if(!isset($_SESSION["login"]) && !isset($_SESSION["p1"]))
+        $db = mysqli_connect("localhost", "root", "", "moduleconnexion");
+        $query = "SELECT `login`, `password` FROM `utilisateurs` WHERE '$_login'=`login` AND '$_password'=`password`";
+        $result = mysqli_query($db, $query);
+
+        if(mysqli_num_rows($result) == 1) // si exactement une entrée correspond
         {
-            $_SESSION["login"] = $_POST["login"];
-            $_SESSION["p1"] = $_POST["p1"];
+            if(!isset($_SESSION)) // s'il n'y a pas encore de session ouverte
+            {
+                session_start();
+                if(empty($_SESSION["login"]) || empty($_SESSION["password"]))
+                {
+                    $_SESSION["login"] = $_login;
+                    $_SESSION["password"] = $_password;
+                }
+                else
+                {
+                    $query = "SELECT `prenom`, `nom`, `login`, `id` FROM `utilisateurs` WHERE '$_login'=`login` AND '$_password'=`password`";
+                    $result = mysqli_query($db, $query);
+                    $row = mysqli_fetch_assoc($result);
+
+                    $_SESSION["login"] = $row["login"];
+                    $_SESSION["name"] = $row["prenom"];
+                    $_SESSION["lastname"] = $row["nom"];
+                    $_SESSION["id"] = $row["id"];
+                    
+                    var_dump($_SESSION);
+                }
+            }
         }
     }
 }
