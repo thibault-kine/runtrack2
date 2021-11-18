@@ -1,6 +1,5 @@
 <?php 
 session_start();
-var_dump($_SESSION);
 $canConnect = false; 
 ?>
 
@@ -37,6 +36,10 @@ $canConnect = false;
         {
             echo "<p style='color: red;'>Login ou mot de passe incorrects</p>";
         }
+    }
+    elseif($_SESSION["id"] == 1 && $_SESSION["login"] == "admin")
+    {
+        echo "<form action='admin.php' method='post>";
     }
     else
     {

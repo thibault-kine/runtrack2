@@ -1,17 +1,22 @@
 <?php
 session_start();
 
-if($_SESSION["id"] == 1 && $_SESSION["login"] == "admin")
+if($_SESSION["id"] != 1)
 {
-    header("Location: admin.php");
+    header("Location: profil.php");
 }
+
+$db = mysqli_connect("localhost", "root", "", "moduleconnexion");
+$query = "SELECT * FROM `utilisateurs`";
+$result = mysqli_query($db, $query);
 ?>
 
 <html>
     <head>
         <title>Bouff' @ Home</title>
         <meta charset="utf-8">
-        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="admin.css">
     </head>
 
 <body>
@@ -33,6 +38,7 @@ if($_SESSION["id"] == 1 && $_SESSION["login"] == "admin")
             <?php 
             echo('
             <form method="post">
+            <p style="color: grey;">Vous êtes un admin</p>
                 <input type="text" name="login" value="'.$_SESSION["login"].'" id="login"><br>
                 <input type="text" name="name" value="'.$_SESSION["name"].'" class="login-names">
                 <input type="text" name="lastname" value="'.$_SESSION["lastname"].'" class="login-names"><br>
@@ -44,20 +50,22 @@ if($_SESSION["id"] == 1 && $_SESSION["login"] == "admin")
             ?>
         </div>
     </div>
-    <div class="panel">
-        <h1>- Vos commandes en cours -</h1>
-        <img src="img/livreur.png" alt="">
-        <p>Vous n'avez rien commandé pour l'instant...</p>
-    </div>
-    <div class="panel">
-        <h1>- Vos restaurants favoris -</h1>
-        <img src="img/restaurant.png" alt="">
-        <p>Vous n'avez aucun restaurant favori...</p>
-    </div>
-    <div class="panel">
-        <h1>- Vos réductions -</h1>
-        <img src="img/coupon.png" alt="">
-        <p>Vous n'avez aucune réduction...</p>
+    <div id="userlist">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Login</th>
+                <th>Mot de passe</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+            <?php
+            while($row = mysqli_fetch_array($result))
+            {
+                echo "<tr><td>".$row["id"]."</td><td>".$row["login"]."</td><td>".$row["password"]."</td><td>".$row["nom"]."</td><td>".$row["prenom"]."</td></tr>";
+            }
+            ?>
+        </table>
     </div>
 </div>    
 

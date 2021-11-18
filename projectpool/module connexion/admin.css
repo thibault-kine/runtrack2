@@ -1,0 +1,25 @@
+#userlist
+{
+    width: fit-content;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table
+{
+    border-spacing: 0;
+    border: 1px solid rgb(69, 69, 119);
+    margin-bottom: 20px;
+}
+
+td
+{
+    padding: 5px;
+    border: 1px solid rgb(69, 69, 119);
+}
+
+th
+{
+    background-color: rgb(189, 189, 189);
+    padding: 10px;
+}
