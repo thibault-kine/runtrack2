@@ -1,4 +1,6 @@
 <?php 
+session_start();
+var_dump($_SESSION);
 $canConnect = false; 
 ?>
 
@@ -31,6 +33,10 @@ $canConnect = false;
     if(!$canConnect)
     {
         echo "<form action=\"\" method=\"post\">";
+        if(!empty($_POST))
+        {
+            echo "<p style='color: red;'>Login ou mot de passe incorrects</p>";
+        }
     }
     else
     {
@@ -71,28 +77,17 @@ function checkLogin(string $_login, string $_password)
 
         if(mysqli_num_rows($result) == 1) // si exactement une entrée correspond
         {
-            if(!isset($_SESSION)) // s'il n'y a pas encore de session ouverte
-            {
-                session_start();
-                if(empty($_SESSION["login"]) || empty($_SESSION["password"]))
-                {
-                    $_SESSION["login"] = $_login;
-                    $_SESSION["password"] = $_password;
-                }
-                else
-                {
-                    $query = "SELECT `prenom`, `nom`, `login`, `id` FROM `utilisateurs` WHERE '$_login'=`login` AND '$_password'=`password`";
-                    $result = mysqli_query($db, $query);
-                    $row = mysqli_fetch_assoc($result);
+            $query = "SELECT * FROM `utilisateurs` WHERE '$_login'=`login` AND '$_password'=`password`";
+            $result = mysqli_query($db, $query);
+            $row = mysqli_fetch_assoc($result);
 
-                    $_SESSION["login"] = $row["login"];
-                    $_SESSION["name"] = $row["prenom"];
-                    $_SESSION["lastname"] = $row["nom"];
-                    $_SESSION["id"] = $row["id"];
-                    
-                    var_dump($_SESSION);
-                }
-            }
+            $_SESSION["login"] = $row["login"];
+            $_SESSION["password"] = $row["password"];
+            $_SESSION["name"] = $row["prenom"];
+            $_SESSION["lastname"] = $row["nom"];
+            $_SESSION["id"] = $row["id"];
+
+            header("location:profil.php");
         }
     }
 }

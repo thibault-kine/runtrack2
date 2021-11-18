@@ -1,4 +1,6 @@
 <?php
+session_start();
+var_dump($_SESSION);
 $canRegister = false;
 ?>
 
@@ -91,10 +93,16 @@ if($canRegister)
     $_login = $_POST["login"];
     $_password = $_POST["p1"];
 
+    $_SESSION["name"] = $_name;
+    $_SESSION["lastname"] = $_lastname;
+    $_SESSION["login"] = $_login;
+    $_SESSION["password"] = $_password;
 
     $bdd = mysqli_connect("localhost", "root", "", "moduleconnexion");
     $query = "INSERT INTO `utilisateurs`(`prenom`, `nom`, `login`, `password`) VALUES ('$_name', '$_lastname', '$_login', '$_password');";
 
     $inscription = mysqli_query($bdd, $query);
+
+    header("location:connexion.php");
 }
 ?>

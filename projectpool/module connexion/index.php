@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+var_dump($_SESSION);
 ?>
 
 <html>
@@ -15,6 +16,12 @@
     <div id="links">
         <a href="index.php"><h1>Bouff' @ Home</h1></a> 
         <div id="profile-links">
+            <?php
+            if(!empty($_SESSION))
+            {
+                echo "<a href='profil.php'><h2>Profil</h2></a>";
+            }
+            ?>
             <a href="inscription.php"><h2>S'inscrire</h2></a>
             <a href="connexion.php"><h2>Se connecter</h2></a>
         </div>
