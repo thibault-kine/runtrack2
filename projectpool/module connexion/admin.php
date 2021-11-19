@@ -6,7 +6,7 @@ if($_SESSION["id"] != 1)
     header("Location: profil.php");
 }
 
-$db = mysqli_connect("localhost", "root", "", "moduleconnexion");
+$db = mysqli_connect("students-laplateforme.io", "root", "", "moduleconnexion");
 $query = "SELECT * FROM `utilisateurs`";
 $result = mysqli_query($db, $query);
 ?>
@@ -89,7 +89,7 @@ if($_POST != $_SESSION)
         $_name = $_POST["name"];
         $_lastname = $_POST["lastname"];
 
-        $db = mysqli_connect("localhost", "root", "", "moduleconnexion");
+        $db = mysqli_connect("students-laplateforme.io", "root", "", "thibault-kine_moduleconnexion", 8443);
         $query = "UPDATE `utilisateurs` SET `login`='$_login', `password`='$_password', `prenom`='$_name', `nom`='$_lastname' WHERE `id`='$_id'";
         $result = mysqli_query($db, $query, MYSQLI_ASSOC);
         $row = mysqli_fetch_assoc($result);

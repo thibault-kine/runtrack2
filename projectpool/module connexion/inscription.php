@@ -97,7 +97,7 @@ if($canRegister)
     $_SESSION["login"] = $_login;
     $_SESSION["password"] = $_password;
 
-    $bdd = mysqli_connect("localhost", "root", "", "moduleconnexion");
+    $bdd = mysqli_connect("students-laplateforme.io", "root", "", "thibault-kine_moduleconnexion", 8443);
     $query = "INSERT INTO `utilisateurs`(`prenom`, `nom`, `login`, `password`) VALUES ('$_name', '$_lastname', '$_login', '$_password');";
 
     $inscription = mysqli_query($bdd, $query);

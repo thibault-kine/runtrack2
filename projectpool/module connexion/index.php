@@ -44,5 +44,6 @@ session_start();
         ");
     }
     ?>
+<a href="https://github.com/thibault-kine/module-connexion">Lien du repo Github</a>
 </body>
 </html>
